@@ -36,10 +36,22 @@ const Layout = ({ children, page, title }) => {
         </div>
       </div>
 
-      <footer className="container mx-auto py-6 px-4 text-center">
-        © {new Date().getFullYear()} &middot; Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
+      <footer className="container mx-auto mt-5 py-6 px-4 text-center text-gray-500">
+        <a href="https://github.com/AlgoWiki" className="text-gray-500">
+          AlgoWiki
+        </a>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">
+          <img
+            className="h-3.5 -mt-1 px-2 inline"
+            src="https://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-sa.png"
+            alt="CC-BY-SA 4.0"
+            // style="height:14px;margin-bottom:-2px;"
+          />
+        </a>
+        <span className="px-1">|</span> fork us on{" "}
+        <a href="https://github.com/AlgoWiki/Website" className="text-gray-500">
+          GitHub
+        </a>
       </footer>
     </>
   )
