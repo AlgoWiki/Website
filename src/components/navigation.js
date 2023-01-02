@@ -2,15 +2,21 @@ import * as React from "react"
 import { Link } from "gatsby"
 
 const Entry = ({ to, children }) => (
-  <li className="">
-    <Link to={to} className="block pt-1 lg:py-1">
-      {children}
-    </Link>
+  <li>
+    {to.startsWith("http") ? (
+      <a href={to} className="block pt-1 lg:py-1">
+        {children}
+      </a>
+    ) : (
+      <Link to={to} className="block pt-1 lg:py-1">
+        {children}
+      </Link>
+    )}
   </li>
 )
 
-const Navigation = ({ page }) => (
-  <nav>
+const Navigation = ({ page, menuOpen }) => (
+  <nav className={menuOpen ? "block" : "hidden lg:block"}>
     <ul className="mt-3 lg:mt-4">
       <Entry to="/">Front page</Entry>
       <Entry to="/All pages">All pages</Entry>
