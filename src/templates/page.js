@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -10,7 +11,9 @@ const Page = ({ pageContext }) => {
       <h1>{title}</h1>
       <ul>
         {categories.map(category => (
-          <li key={category}>{category}</li>
+          <li key={category}>
+            <Link to={`/Category/${category}`}>{category}</Link>
+          </li>
         ))}
       </ul>
       <div dangerouslySetInnerHTML={{ __html: html }}></div>

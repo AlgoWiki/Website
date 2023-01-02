@@ -26,16 +26,27 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `)
 
+  const categories = {}
   const pageTemplate = path.resolve(`src/templates/page.js`)
   for (const page of result.data.pages.nodes) {
+    const currentCategories = page.frontmatter.categories
+      ? page.frontmatter.categories.split(", ")
+      : []
+    currentCategories.sort()
+
+    for (const category of currentCategories) {
+      if (!categories.hasOwnProperty(category)) {
+        categories[category] = []
+      }
+      categories[category].push(page.parent.name)
+    }
+
     createPage({
       path: page.parent.name == indexPage ? "/" : `/${page.parent.name}`,
       component: pageTemplate,
       context: {
         title: page.parent.name,
-        categories: page.frontmatter.categories
-          ? page.frontmatter.categories.split(", ")
-          : [],
+        categories: currentCategories,
         tableOfContents: page.tableOfContents,
         html: page.html,
       },
@@ -47,4 +58,17 @@ exports.createPages = async ({ actions, graphql }) => {
     toPath: `/`,
     redirectInBrowser: true,
   })
+
+  const categoryTemplate = path.resolve(`src/templates/category.js`)
+  for (const [category, pages] of Object.entries(categories)) {
+    pages.sort()
+    createPage({
+      path: `/Category/${category}`,
+      component: categoryTemplate,
+      context: {
+        name: category,
+        pages: pages,
+      },
+    })
+  }
 }
