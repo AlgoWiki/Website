@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const Page = ({ pageContext }) => {
-  const { title, categories, tableOfContents, html } = pageContext
+  const { title, categories, html } = pageContext
   return (
     <Layout>
       <h1>{title}</h1>
@@ -13,9 +13,6 @@ const Page = ({ pageContext }) => {
           <li key={category}>{category}</li>
         ))}
       </ul>
-      {tableOfContents && (
-        <div dangerouslySetInnerHTML={{ __html: tableOfContents }}></div>
-      )}
       <div dangerouslySetInnerHTML={{ __html: html }}></div>
     </Layout>
   )
