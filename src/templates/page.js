@@ -1,6 +1,7 @@
 import * as React from "react"
 
 import Layout from "../components/layout"
+import Seo from "../components/seo"
 
 const Page = ({ pageContext }) => {
   const { title, categories, tableOfContents, html } = pageContext
@@ -19,5 +20,7 @@ const Page = ({ pageContext }) => {
     </Layout>
   )
 }
+
+export const Head = ({ pageContext }) => <Seo title={pageContext.title} />
 
 export default Page
