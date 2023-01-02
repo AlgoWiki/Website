@@ -14,13 +14,15 @@ const Categories = ({ data }) => {
 
   return (
     <Layout title="Categories">
-      <ul>
-        {categories.map(category => (
-          <li key={category}>
-            <Link to={`/Category/${category}`}>{category}</Link>
-          </li>
-        ))}
-      </ul>
+      <div className="prose">
+        <ul>
+          {categories.map(category => (
+            <li key={category}>
+              <Link to={`/Category/${category}`}>{category}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </Layout>
   )
 }

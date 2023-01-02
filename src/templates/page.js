@@ -9,7 +9,7 @@ const Page = ({ pageContext }) => {
   return (
     <Layout title={title} page={{ name: title }}>
       <CategoryList categories={categories} />
-      <div dangerouslySetInnerHTML={{ __html: html }}></div>
+      <div className="prose" dangerouslySetInnerHTML={{ __html: html }}></div>
     </Layout>
   )
 }

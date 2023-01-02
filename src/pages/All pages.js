@@ -6,13 +6,15 @@ import Seo from "../components/seo"
 
 const AllPages = ({ data }) => (
   <Layout title="All pages">
-    <ul>
-      {data.pages.nodes.map(page => (
-        <li key={page.parent.name}>
-          <Link to={`/${page.parent.name}`}>{page.parent.name}</Link>
-        </li>
-      ))}
-    </ul>
+    <div className="prose">
+      <ul>
+        {data.pages.nodes.map(page => (
+          <li key={page.parent.name}>
+            <Link to={`/${page.parent.name}`}>{page.parent.name}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   </Layout>
 )
 

@@ -29,8 +29,8 @@ const Layout = ({ children, page, title }) => {
           page={page}
         />
         <div className="lg:w-4/5 px-4 py-6 lg:py-0">
-          <main>
-            {title && <h1>{title}</h1>}
+          <main className="mt-16">
+            {title && <h1 className="text-3xl font-bold mb-8">{title}</h1>}
             {children}
           </main>
         </div>

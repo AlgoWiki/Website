@@ -8,13 +8,15 @@ const Category = ({ pageContext }) => {
   const { name, pages } = pageContext
   return (
     <Layout title={`Category: ${name}`}>
-      <ul>
-        {pages.map(page => (
-          <li key={page}>
-            <Link to={`/${page}`}>{page}</Link>
-          </li>
-        ))}
-      </ul>
+      <div className="prose">
+        <ul>
+          {pages.map(page => (
+            <li key={page}>
+              <Link to={`/${page}`}>{page}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </Layout>
   )
 }
