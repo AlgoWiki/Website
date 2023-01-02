@@ -17,6 +17,7 @@ exports.createPages = async ({ actions, graphql }) => {
             }
           }
           frontmatter {
+            title
             categories
           }
           tableOfContents
@@ -45,7 +46,8 @@ exports.createPages = async ({ actions, graphql }) => {
       path: page.parent.name == indexPage ? "/" : `/${page.parent.name}`,
       component: pageTemplate,
       context: {
-        title: page.parent.name,
+        name: page.parent.name,
+        title: page.frontmatter.title || page.parent.name,
         categories: currentCategories,
         tableOfContents: page.tableOfContents,
         html: page.html,
