@@ -1,0 +1,19 @@
+{
+  "name": "gatsby-remark-wiki-link",
+  "version": "0.0.1",
+  "description": "Support for wiki links",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"No build script setup\""
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin"
+  ],
+  "author": "Bjarki Ágúst Guðmundsson <suprdewd@gmail.com>",
+  "license": "0BSD",
+  "dependencies": {
+    "unist-util-visit": "^2.0.3"
+  }
+}
