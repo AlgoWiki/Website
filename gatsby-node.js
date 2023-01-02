@@ -1,10 +1,12 @@
 const path = require("path")
 
+const indexPage = "AlgoWiki"
+
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
 exports.createPages = async ({ actions, graphql }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
   const result = await graphql(`
     query Pages {
       pages: allMarkdownRemark {
@@ -27,7 +29,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const pageTemplate = path.resolve(`src/templates/page.js`)
   for (const page of result.data.pages.nodes) {
     createPage({
-      path: `/${page.parent.name}`,
+      path: page.parent.name == indexPage ? "/" : `/${page.parent.name}`,
       component: pageTemplate,
       context: {
         title: page.parent.name,
@@ -39,4 +41,10 @@ exports.createPages = async ({ actions, graphql }) => {
       },
     })
   }
+
+  createRedirect({
+    fromPath: `/${indexPage}`,
+    toPath: `/`,
+    redirectInBrowser: true,
+  })
 }
