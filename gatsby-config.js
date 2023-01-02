@@ -33,6 +33,7 @@ module.exports = {
         plugins: [`gatsby-remark-wiki-link`],
       },
     },
+    `gatsby-plugin-postcss`,
   ],
   trailingSlash: "never",
 }
