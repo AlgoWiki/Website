@@ -7,7 +7,7 @@ import Seo from "../components/seo"
 const Page = ({ pageContext }) => {
   const { title, categories, html } = pageContext
   return (
-    <Layout>
+    <Layout page={{ name: title }}>
       <h1>{title}</h1>
       <CategoryList categories={categories} />
       <div dangerouslySetInnerHTML={{ __html: html }}></div>
