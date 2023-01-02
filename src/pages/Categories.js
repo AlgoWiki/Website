@@ -13,8 +13,7 @@ const Categories = ({ data }) => {
   categories.sort()
 
   return (
-    <Layout>
-      <h1>Categories</h1>
+    <Layout title="Categories">
       <ul>
         {categories.map(category => (
           <li key={category}>

@@ -7,8 +7,7 @@ import Seo from "../components/seo"
 const Category = ({ pageContext }) => {
   const { name, pages } = pageContext
   return (
-    <Layout>
-      <h1>Category: {name}</h1>
+    <Layout title={`Category: ${name}`}>
       <ul>
         {pages.map(page => (
           <li key={page}>

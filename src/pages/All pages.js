@@ -5,8 +5,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const AllPages = ({ data }) => (
-  <Layout>
-    <h1>All pages</h1>
+  <Layout title="All pages">
     <ul>
       {data.pages.nodes.map(page => (
         <li key={page.parent.name}>

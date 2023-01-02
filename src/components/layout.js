@@ -10,7 +10,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 
-const Layout = ({ children, page }) => {
+const Layout = ({ children, page, title }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -29,7 +29,10 @@ const Layout = ({ children, page }) => {
           page={page}
         />
         <div className="lg:w-4/5 px-4 py-6 lg:py-0">
-          <main>{children}</main>
+          <main>
+            {title && <h1>{title}</h1>}
+            {children}
+          </main>
         </div>
       </div>
 
