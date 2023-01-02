@@ -6,7 +6,7 @@ import Navigation from "./navigation"
 const Header = ({ page }) => (
   <header className="lg:w-1/5 px-4 py-6 lg:py-0">
     <h1>
-      <Link to="/" className="block">
+      <Link to="/" className="block lg:mt-8">
         <img
           alt="AlgoWiki"
           src="/logo.png"
