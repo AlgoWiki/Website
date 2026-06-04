@@ -22,6 +22,17 @@ module.exports = {
             strong: {
               "font-weight": "500",
             },
+            // Tailwind Typography wraps inline `code` in literal backtick
+            // pseudo-elements and bolds it; drop both for clean rendering.
+            code: {
+              "font-weight": "400",
+            },
+            "code::before": {
+              content: '""',
+            },
+            "code::after": {
+              content: '""',
+            },
           },
         },
       }),
