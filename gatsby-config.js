@@ -32,6 +32,13 @@ module.exports = {
         // Plugins configs
         plugins: [
           {
+            // Give every heading a GitHub-style slug `id` so in-page links like
+            // [foo](#some-section) resolve. `icon: false` keeps the IDs without
+            // injecting a visible anchor-link icon.
+            resolve: `gatsby-remark-autolink-headers`,
+            options: { icon: false },
+          },
+          {
             // Parse $…$ / $$…$$ into math nodes (via remark-math) and render
             // them with KaTeX at build time. Parsing math before Markdown's
             // backslash-escaping is what keeps LaTeX like \{ \} \\ intact.
