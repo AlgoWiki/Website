@@ -30,7 +30,21 @@ module.exports = {
         // GitHub Flavored Markdown mode (default: true)
         gfm: true,
         // Plugins configs
-        plugins: [`gatsby-remark-wiki-link`],
+        plugins: [
+          {
+            // Parse $…$ / $$…$$ into math nodes (via remark-math) and render
+            // them with KaTeX at build time. Parsing math before Markdown's
+            // backslash-escaping is what keeps LaTeX like \{ \} \\ intact.
+            resolve: `gatsby-remark-katex`,
+            options: {
+              // Never fail the build on a bad formula; render it in red instead.
+              throwOnError: false,
+              errorColor: `#cc0000`,
+              strict: `ignore`,
+            },
+          },
+          `gatsby-remark-wiki-link`,
+        ],
       },
     },
     `gatsby-plugin-postcss`,

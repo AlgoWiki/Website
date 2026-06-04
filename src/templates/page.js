@@ -17,23 +17,6 @@ const Page = ({ pageContext }) => {
 export const Head = ({ pageContext }) => (
   <>
     <Seo title={pageContext.title} />
-    <script>
-      {`
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$']]
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-      `}
-    </script>
-    <script
-      id="MathJax-script"
-      async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-    ></script>
   </>
 )
 
